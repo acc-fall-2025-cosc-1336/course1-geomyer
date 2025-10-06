@@ -1,15 +1,20 @@
-#Test case for homework c_decisions.py
+##Test case for homework c_decisions.py
 import unittest
 
-from src.homework.c_decisions.decisions import get_letter_grade, number_to_letter_grade
+from src.homework.d_repetition import get_factorial, sum_odd_numbers
 
 class TestDecisions(unittest.TestCase):
 
-    def test_number_to_letter_grade(self):
-        self.assertEqual(number_to_letter_grade(95), 'A')
-        self.assertEqual(number_to_letter_grade(85), 'B')
-        self.assertEqual(number_to_letter_grade(75), 'C')
-        self.assertEqual(number_to_letter_grade(65), 'D')
-        self.assertEqual(number_to_letter_grade(55), 'F')
-        self.assertEqual(number_to_letter_grade(0), 'F')
-        self.assertEqual(number_to_letter_grade(100), 'A')
+    def test_get_factorial(self):
+        self.assertEqual(get_factorial(0), 1)
+        self.assertEqual(get_factorial(1), 1)
+        self.assertEqual(get_factorial(5), 120)
+        self.assertEqual(get_factorial(10), 3628800)
+
+    def test_sum_odd_numbers(self):
+        self.assertEqual(sum_odd_numbers(1), 1)
+        self.assertEqual(sum_odd_numbers(2), 1)
+        self.assertEqual(sum_odd_numbers(5), 9)
+        self.assertEqual(sum_odd_numbers(10), 25)
+ 
+

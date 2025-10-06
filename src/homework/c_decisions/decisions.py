@@ -1,4 +1,4 @@
-#Write a function for get_letter_grade(score) that takes a numeric score as input and returns the corresponding letter grade based on the following scale:
+
 #90-100: A
 #80-89: B
 #70-79: C
@@ -31,3 +31,4 @@ def number_to_letter_grade(grade):
         return 'D'
     elif grade >= 0:
         return 'F'
+
