@@ -17,3 +17,4 @@ class TestDecisions(unittest.TestCase):
         self.assertEqual(sum_odd_numbers(5), 9)
         self.assertEqual(sum_odd_numbers(10), 25)
  
+
