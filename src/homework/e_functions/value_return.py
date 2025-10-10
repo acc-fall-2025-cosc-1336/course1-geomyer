@@ -4,8 +4,6 @@ HOURS = 40
 OVERTIME_MULTIPLIER = 1.5
 Rate = 0.0
 
-
-
 #Get the gross pay from the hours worked and the hourly rate
 def get_gross_pay(hours, rate):
     if hours <= HOURS:
@@ -28,11 +26,4 @@ def get_federal_tax(gross_pay):
 
 
 
-#Get the hours worked and the hourly rate from the user
-def main():
-    hours = float(input("Enter the number of hours worked: "))
-    rate = float(input("Enter the hourly rate of pay: "))
-    #Call the function to calculate the gross pay
-    gross_pay = calculate_pay(hours, rate)
-    #Display the gross pay
-    print(f"The gross pay is: ${gross_pay:.2f}")
+

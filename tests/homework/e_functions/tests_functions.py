@@ -1,18 +1,22 @@
-#Calculate payroll functions
+import unittest
 
-from homework.e_functions.value_return import get_gross_pay, get_fica_tax, get_federal_tax
-from homework.e_functions.void_func import display_payroll_check
+from src.homework.e_functions.value_return import get_gross_pay, get_fica_tax, get_federal_tax
 
-def calculate_pay(hours, rate):
-    gross_pay = get_gross_pay(hours, rate)
-    fica_tax = get_fica_tax(gross_pay)
-    federal_tax = get_federal_tax(gross_pay)
-    display_payroll_check(gross_pay, fica_tax, federal_tax)
-    return gross_pay
 
-#Main function to get user input and call the calculate_pay function
-def main():
-    hours = float(input("Enter the number of hours worked: "))
-    rate = float(input("Enter the hourly rate of pay: "))
-    calculate_pay(hours, rate)
-    print("Payroll check displayed.")
+class test_functions(unittest.TestCase):
+    def test_get_gross_pay(self):
+        self.assertEqual(get_gross_pay(30, 20), 600)
+        self.assertEqual(get_gross_pay(45, 20), 950)
+        self.assertEqual(get_gross_pay(40, 15), 600)
+    
+    def test_get_fica_tax(self):
+        self.assertEqual(get_fica_tax(1000), 230)
+        self.assertEqual(get_fica_tax(500), 115)
+        self.assertEqual(get_fica_tax(0), 0)
+        self.assertEqual(get_fica_tax(2000), 460)
+
+    def test_get_federal_tax(self):
+        self.assertEqual(get_federal_tax(1000), 150)
+        self.assertEqual(get_federal_tax(500), 75)
+        self.assertEqual(get_federal_tax(0), 0)
+        self.assertEqual(get_federal_tax(2000), 300)
