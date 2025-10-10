@@ -1,10 +1,10 @@
 import unittest
 '''
-the file in tests/homework/c_decisions/tests_decisions.py 
+the file in src/tests/homework/e_functions/tests_functions.py
 has the test functions
 '''
-from tests.homework.d_repetition import tests_repetition  
+from tests.homework.e_functions import tests_functions   
 
-suite = unittest.TestLoader().loadTestsFromModule(tests_repetition)
+suite = unittest.TestLoader().loadTestsFromModule(tests_functions)
 
 unittest.TextTestRunner().run(suite)

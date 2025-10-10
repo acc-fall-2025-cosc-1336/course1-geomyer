@@ -1,5 +1,27 @@
-import devprocess
+def pass_it(x, y):
 
-result = devprocess.add_numbers(5, 5)
+    z = y**x
 
-print(result)
+
+
+    return(z)
+
+num1 = 3
+
+
+
+
+
+num2 = 4
+
+
+
+
+
+answer = pass_it(num1, num2)
+
+
+
+
+
+print(answer)
