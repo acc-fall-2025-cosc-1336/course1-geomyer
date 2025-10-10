@@ -8,4 +8,8 @@ def main():
     #Call the function to calculate the gross pay
     gross_pay = calculate_pay(hours, rate)
     #Display the gross pay
-    print(f"The gross pay is: ${gross_pay:.2f}")    
+    print(f"Gross Pay: ${gross_pay:.2f}")
+    return gross_pay
+
+if __name__ == "__main__":
+    main()
