@@ -14,7 +14,7 @@ dna_string1 = "GAGCCTACTAACGGGAT"
 dna_string2 = "CATCGTAATGACGGCCT"
 print(hamming_distance(dna_string1, dna_string2))
 
-# Get DNA complement no slicing
+# Get DNA complement without string slicing
 
 def get_dna_complement(dna):
     complement = ""
