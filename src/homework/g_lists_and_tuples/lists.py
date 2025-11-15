@@ -1,48 +1,40 @@
-#Homework 8. get_p_distance with list parameter list1 and list2. No magic loops.
-
-def get_p_distance(list1, list2, p):
-    """Calculate the p-distance between two lists. 
-    The p-distance is defined as the number of positions at which the corresponding elements are different,
-    divided by the total number of elements.
-    Args:
-        list1 (list): ['T','T','T','C','C','A','T','T','T','A']
-        list2 (list): ['G','A','T','T','C','A','T','T','T','C']
-        list3 (list): ['T','T','T','C','C','A','T','T','T','T']
-        list4 (list): ['G','T','T','C','C','A','T','T','T','A']
-        p (int): The power to which the differences are raised.
-    Returns:
-        float: The p-distance between the two lists.
-    """
+def get_p_distance(list1, list2):
     if len(list1) != len(list2):
-        raise ValueError("Lists must be of the same length")
+        raise ValueError("Lists must have the same length to calculate distance.")
     
-    differences = sum(abs(a - b) ** p for a, b in zip(list1, list2))
-    p_distance = (differences / len(list1)) ** (1/p)
-    
-    return p_distance
+    distance = 0
+    for a, b in zip(list1, list2):
+        if a != b:
+            distance += 1
+    return distance / len(list1)
+# Assuming the following lists exist
+list1 = ['T','T','T','C','C','A','T','T','T','A']
+list2 = ['G','A','T','T','C','A','T','T','T','C']
+list3 = ['T','T','T','C','C','A','T','T','T','T']
+list4 = ['G','T','T','C','C','A','T','T','T','A']
 
-def get_p_distance_matrix(matrix1, matrix2, p):
-    """Calculate the p-distance between two matrices.
-    Args:
-        matrix1 (list of lists): First matrix.
-        matrix2 (list of lists): Second matrix.
-        p (int): The power to which the differences are raised.
-    Returns:
-        float: The p-distance between the two matrices.
+def get_p_distance_matrix(list_of_lists):
     """
-    if len(matrix1) != len(matrix2) or any(len(row1) != len(row2) for row1, row2 in zip(matrix1, matrix2)):
-        raise ValueError("Matrices must be of the same dimensions")
-    
-    total_differences = 0
-    total_elements = 0
-    
-    for row1, row2 in zip(matrix1, matrix2):
-        for a, b in zip(row1, row2):
-            total_differences += abs(a - b) ** p
-            total_elements += 1
-    
-    p_distance = (total_differences / total_elements) ** (1/p)
-    
-    return p_distance
+    Build a matrix of pairwise p-distances between lists using get_p_distance.
+    """
+    n = len(list_of_lists)
+    matrix = [[0.0 for _ in range(n)] for _ in range(n)]
+    for i in range(n):
+        for j in range(n):
+            if i == j:
+                matrix[i][j] = 0.0
+            else:
+                matrix[i][j] = get_p_distance(list_of_lists[i], list_of_lists[j])
+    return matrix
+
+lists_to_compare = [list1, list2, list3, list4]
+list_to_compare = [list2, list1, list3, list4]  # Reordered as per the test case
+p_distance_matrix = get_p_distance_matrix(lists_to_compare)
+
+print("The p-distance matrix is:")
+for row in p_distance_matrix:
+    print([round(val, 2) for val in row])
+
+
 
 
