@@ -28,12 +28,13 @@ def get_p_distance_matrix(list_of_lists):
             else:
                 matrix[i][j] = get_p_distance(list_of_lists[i], list_of_lists[j])
     return matrix
-lists_to_compare = [
-    ['T','T','T','C','C','A','T','T','T','A'],
-    ['G','A','T','T','C','A','T','T','T','C'],
-    ['T','T','T','C','C','A','T','T','T','T'],
-    ['G','T','T','C','C','A','T','T','T','A']
-]
+lists_to_compare = []
+#Example usage: 
+list1 = ['T','T','T','C','C','A','T','T','T','A']
+list2 = ['G','A','T','T','C','A','T','T','T','C']
+list3 = ['T','T','T','C','C','A','T','T','T','T']
+list4 = ['G','T','T','C','C','A','T','T','T','A']
+lists_to_compare = [list1, list2, list3, list4]
 p_distance_matrix = get_p_distance_matrix(lists_to_compare)
 print("The p-distance matrix is:")
 for row in p_distance_matrix:

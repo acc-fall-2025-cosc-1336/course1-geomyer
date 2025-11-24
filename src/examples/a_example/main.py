@@ -1,27 +1,7 @@
-def pass_it(x, y):
-
-    z = y**x
-
-
-
-    return(z)
-
-num1 = 3
-
-
-
-
-
-num2 = 4
-
-
-
-
-
-answer = pass_it(num1, num2)
-
-
-
-
-
-print(answer)
+from devprocess import  print_hello
+def main():
+    greeting = print_hello("Alice")
+    input("should print 'Hello, Alice!':")
+    print(greeting)"
+if __name__ == "__main__":
+    main()
